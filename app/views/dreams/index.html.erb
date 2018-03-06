@@ -1,0 +1,52 @@
+<head>
+	<title>a sua escola dos sonhos</title>
+</head>
+
+<div class="sky">
+	<div class="cloud">
+		<%= form_for @dream, remote: true, id: 'form' do |f| %>	
+			<h1>
+				o que se ensinaria na escola dos seus sonhos?	
+			</h1>
+			<%= f.text_field :text, :required => true, :autocomplete => :off, id: 'input' %>
+
+			<%= f.button "", class: 'send-dream-button', id: 'btn' do %>
+				 > 
+			<% end %>
+		<% end %>
+	</div>
+</div>
+
+
+<div id="dreams-shared" style="padding-top: 50px; display: none">
+	<% @dreams.each do |dream| %>
+		- <%= dream.text %>;
+		</br>
+	<% end %>
+</div>
+
+<script>
+	
+	window.onload = function() 
+	{
+  		$("#input").focus();
+	};
+
+	$(document).ajaxComplete(function(event, jqxhr, settings) 
+	{
+  		$("#input").val("");
+  		$("#input").focus();
+
+	});
+
+	function wait(ms)
+	{
+	    var start = new Date().getTime();
+	    var end = start;
+	    while(end < start + ms) 
+	    {
+	     	end = new Date().getTime();
+	    }
+  	}
+
+</script>
