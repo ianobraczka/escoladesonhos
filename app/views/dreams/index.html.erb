@@ -37,20 +37,24 @@
 	{
 		if($('#input:visible').length != 0)
 		{
-			$.when($('#input').fadeOut(800)).done(function() 
+			document.getElementById("input").style.color = "#035B81";
+			$.when($('#input').fadeOut(1000)).done(function() 
 			{	
 				$("#input").val("");
 				$("#input2").fadeIn();
 				$("#input2").focus();
+				document.getElementById("input").style.color = "#000000";
 			});
         }
         else if($('#input2:visible').length != 0)
         {
-        	$.when($('#input2').fadeOut(800)).done(function() 
+        	document.getElementById("input2").style.color = "#035B81";
+        	$.when($('#input2').fadeOut(1000)).done(function() 
 			{
 				$("#input2").val("");
 				$("#input").fadeIn();
 				$("#input").focus();
+				document.getElementById("input2").style.color = "#000000";
 			});
         }
 	});
