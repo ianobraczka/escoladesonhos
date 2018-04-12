@@ -8,7 +8,8 @@
 			<h1>
 				o que se ensinaria na escola dos seus sonhos?	
 			</h1>
-			<%= f.text_field :text, :required => true, :autocomplete => :off, id: 'input' %>
+			<%= f.text_field :text, :autocomplete => :off, id: 'input' %>
+			<%= f.text_field :text, :autocomplete => :off, id: 'input2', style: 'display:none' %>
 
 			<%= f.button "", class: 'send-dream-button', id: 'btn' do %>
 				 > 
@@ -34,9 +35,24 @@
 
 	$(document).ajaxComplete(function(event, jqxhr, settings) 
 	{
-  		$("#input").val("");
-  		$("#input").focus();
-
+		if($('#input:visible').length != 0)
+		{
+			$.when($('#input').fadeOut(800)).done(function() 
+			{	
+				$("#input").val("");
+				$("#input2").fadeIn();
+				$("#input2").focus();
+			});
+        }
+        else if($('#input2:visible').length != 0)
+        {
+        	$.when($('#input2').fadeOut(800)).done(function() 
+			{
+				$("#input2").val("");
+				$("#input").fadeIn();
+				$("#input").focus();
+			});
+        }
 	});
 
 	function wait(ms)
