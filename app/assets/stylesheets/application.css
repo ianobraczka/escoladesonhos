@@ -48,7 +48,7 @@ body
 
 .send-dream-button
 {
-  background-color: transparent;
+  background-color: #e0dee0;
   border-radius: 50%;
   border: none;
   font-size: 50px;
@@ -60,7 +60,7 @@ body
 
 .send-dream-button:hover
   {
-    background-color: white;
+    background-color: #76b0c1;
   }
 
 input 
